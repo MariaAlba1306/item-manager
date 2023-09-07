@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Satoshi";
+  src: local("AirbnbCerealLight"),
+    url("./assets/fonts/Satoshi-Variable.ttf") format("truetype");
+}
+html,
+body {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}

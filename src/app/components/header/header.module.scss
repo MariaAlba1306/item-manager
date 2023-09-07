@@ -1,0 +1,49 @@
+.Header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-family: "Satoshi";
+  &__logo {
+    width: 139px;
+    height: 51px;
+  }
+
+  &-button {
+    &__link {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+    }
+    &__text {
+      font-family: "Satoshi";
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 25px;
+      color: #de5f3f;
+      &__image {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 470px) {
+  .Header {
+    height: 26px;
+    &__logo {
+      width: 118px;
+      height: 46px;
+    }
+    &-button__text {
+      display: none;
+    }
+    &-button__text__image {
+      height: 40px;
+      width: 40px;
+    }
+  }
+}
