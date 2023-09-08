@@ -9,13 +9,13 @@ type ItemCardProps = {
   email: string;
   description: string;
 };
-export function ItemCard({
-  title,
-  price,
-  image,
-  email,
-  description,
-}: ItemCardProps) {
+
+interface CardElementProps {
+  data: any;
+}
+export function ItemCard({ data }: CardElementProps) {
+  const { title, price, image, email, description }: ItemCardProps = data;
+
   return (
     <div className={styles.ItemCard} key="">
       <div className={styles.ItemCard__image}>
@@ -37,7 +37,10 @@ export function ItemCard({
         <p className={styles.ItemCard__info__title}>{title}</p>
         <p className={styles.ItemCard__info__price}>{price}€</p>
         <p className={styles.ItemCard__info__email}>
-          <a className={styles.ItemCard__info__email__text} href={`mailto:${email}`}>
+          <a
+            className={styles.ItemCard__info__email__text}
+            href={`mailto:${email}`}
+          >
             {email}
           </a>
         </p>

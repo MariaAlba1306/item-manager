@@ -10,7 +10,8 @@ export const getItemsList = async (): Promise<Item[]> => {
     "https://frontend-tech-test-data.s3-eu-west-1.amazonaws.com/items.json";
   const result = await fetch(API_URL);
   const json = await result.json();
-  const itemList = json.results;
+  const itemList = json.items;
+  console.log(itemList);
 
   return itemList;
 };
