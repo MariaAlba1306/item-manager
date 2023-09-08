@@ -1,0 +1,78 @@
+.ItemCard {
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  margin: 20px;
+  height: 350px;
+  background: #ffffff;
+  border-radius: 10px;
+  &__image {
+    display: flex;
+    height: 170px;
+    width: auto;
+    background-color: black;
+    border-radius: 32px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &__space {
+      border-radius: 10px 10px 0px 0px;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    &__favorite {
+      right: 20px;
+      top: 24px;
+      z-index: 2;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      &__space {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+  &__info {
+    padding: 0 10px 10px;
+    max-height: 200px;
+    p {
+      margin: 5px;
+      font-family: "Satoshi";
+    }
+    &__title {
+      font-size: 18px;
+      font-weight: 800;
+      display: -webkit-box;
+      -webkit-line-clamp: 1; 
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      position: relative;
+    }
+    &__price {
+      font-size: 17px;
+      font-weight: 700;
+    }
+    &__email__text {
+      text-decoration: none;
+      text-decoration: underline;
+      color: black;
+    }
+    &__description {
+      font-size: 14px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3; 
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      position: relative;
+      color: grey;
+    }
+  }
+}
+
+.ItemCard:hover {
+  transition: box-shadow 0.5s;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.35);
+}
