@@ -32,6 +32,14 @@
 }
 @media only screen and (max-width: 470px) {
   .Sort {
-    justify-content: flex-start;
+    width: 70vw;
+  }
+  .Sort__image {
+    width: 20px;
+    height: 20px;
+    &__space {
+      width: 20px;
+      height: 20px;
+    }
   }
 }
