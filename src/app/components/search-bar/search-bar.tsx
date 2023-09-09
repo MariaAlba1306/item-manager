@@ -5,15 +5,17 @@ interface Props {
   placeholder: string;
   onChange: ChangeEventHandler;
   className: string;
+  value: any;
 }
-const SearchBar: FC<Props> = ({ placeholder, onChange, className }) => {
+const SearchBar: FC<Props> = ({ placeholder, onChange, className, value }) => {
   return (
-      <input
-        placeholder={placeholder}
-        inputMode="search"
-        onChange={onChange}
-        className={className}
-      />
+    <input
+      placeholder={placeholder}
+      inputMode="search"
+      onChange={onChange}
+      className={className}
+      value={value}
+    />
   );
 };
 export default SearchBar;
