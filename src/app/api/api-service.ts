@@ -11,7 +11,6 @@ export const getItemsList = async (): Promise<Item[]> => {
   const result = await fetch(API_URL);
   const json = await result.json();
   const itemList = json.items;
-  console.log(itemList);
 
   return itemList;
 };
