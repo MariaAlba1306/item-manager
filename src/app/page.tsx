@@ -6,24 +6,20 @@ import ItemList from "./components/item-list/item-list";
 import SearchBar from "./components/search-bar/search-bar";
 import SortBar from "./components/sort/sort";
 import FavoritesModal from "./components/modal/modal";
-import NoResults from "./components/no-results/no-results";
-
-import useFavoritesSearch from "./hooks/useFavModalSearch";
-import { useFavorites } from "./hooks/useFavorites";
 import useItemsList from "./hooks/useItemsList";
 import useSortAndSearch from "./hooks/useFilterList";
+import NoResults from "./components/no-results/no-results";
 
 import styles from "./page.module.scss";
 import searchBarComponentStyles from "./components/search-bar/search-bar.module.scss";
 
+import useFavoritesSearch from "./hooks/useFavModalSearch";
+import { useFavorites } from "./hooks/useFavorites";
 
 export default function Home() {
   const { itemList, loading, error } = useItemsList();
   const { favorites, updateFavorites, isFav } = useFavorites();
   const { favoritesSearched, handleSearchChange } = useFavoritesSearch();
-  const [shouldShowModal, setShouldShowModal] = useState<boolean>(false);
-  const [isTypeSelected, setTypeSelected] = useState<boolean>(false);
-
   const {
     itemsSearched,
     setItemsSearched,
@@ -34,11 +30,10 @@ export default function Home() {
     filteredItems,
   } = useSortAndSearch(itemList);
 
+  const [shouldShowModal, setShouldShowModal] = useState<boolean>(false);
+
   const handleSortChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setSortValue(event.target.value);
-    {
-      sortValue != "none" ? setTypeSelected(true) : null;
-    }
     setOrderValue("asc");
   };
 
@@ -55,7 +50,7 @@ export default function Home() {
     <main className={styles.main}>
       <Header toggleModal={toggleModal}>
         <SearchBar
-          className={`${searchBarComponentStyles.Searchbox__input} `}
+          className={`${searchBarComponentStyles.Searchbar__input} `}
           placeholder="Type your item..."
           value={itemsSearched}
           onChange={(event: ChangeEvent<HTMLInputElement>) =>
@@ -74,14 +69,13 @@ export default function Home() {
           isFav={isFav}
         />
       ) : null}
-
       <SortBar
         value={sortValue}
         onChange={handleSortChange}
         onClick={toggleOrder}
-        isSorted={isTypeSelected}
+        isIconVisible={sortValue}
+        isIconAscendant={orderValue}
       />
-
       <ItemList>
         {!loading && filteredItems.length === 0 ? (
           <NoResults message="No results. Try another search." />

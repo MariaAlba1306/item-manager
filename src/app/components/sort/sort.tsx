@@ -1,15 +1,25 @@
 import Image from "next/image";
 import { ChangeEventHandler } from "react";
 import styles from "./sort.module.scss";
-import sortIcon from "./../../assets/icons/sorting.svg";
+import sortIconDesc from "./../../assets/icons/sorting-desc.svg";
+import sortIconAsc from "./../../assets/icons/sorting-asc.svg";
+
 interface Props {
   onChange: ChangeEventHandler;
   onClick: React.MouseEventHandler;
   value: string;
-  isSorted: boolean;
+  isIconVisible: string;
+  isIconAscendant: string;
 }
 
-export default function SortBar({ onChange, onClick, value, isSorted }: Props) {
+export default function SortBar({
+  onChange,
+  onClick,
+  value,
+  isIconVisible,
+  isIconAscendant,
+}: Props) {
+  console.log(isIconAscendant);
   return (
     <div className={styles.Sort}>
       <form className={styles.Sort__form}>
@@ -26,11 +36,11 @@ export default function SortBar({ onChange, onClick, value, isSorted }: Props) {
           <option value="email">E-mail</option>
         </select>
       </form>
-      {isSorted ? (
+      {isIconVisible != "none" ? (
         <div className={styles.Sort__image}>
           <a onClick={onClick}>
             <Image
-              src={sortIcon}
+              src={isIconAscendant === "asc" ? sortIconAsc : sortIconDesc}
               alt="sort icon"
               className={styles.Sort__image__space}
             />

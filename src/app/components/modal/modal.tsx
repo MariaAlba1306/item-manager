@@ -44,7 +44,7 @@ function FavoritesModal({
           {hasFavorites ? (
             <>
               <SearchBar
-                className={`${searchBarComponentStyles.Searchbox__input} `}
+                className={`${searchBarComponentStyles.Searchbar__input} `}
                 placeholder="Search your favorite item..."
                 onChange={handleSearchChange}
                 value={favoritesSearched}
@@ -59,7 +59,7 @@ function FavoritesModal({
                       onClickFavorite={() => updateFavorites(filteredName)}
                       isFavorite={isFav(filteredName.title, favorites)}
                       data={filteredName}
-                      key={filteredName.id} 
+                      key={filteredName.id}
                     />
                   ))}
               </div>

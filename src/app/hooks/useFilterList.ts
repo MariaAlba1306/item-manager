@@ -1,44 +1,40 @@
-import { useState, useEffect } from "react";
 
-function useSortAndSearch(items: any) {
+import { useState, useEffect } from "react";
+import { Item } from "../api/api-service";
+
+function useSortAndSearch(items: Item[]) {
   const [itemsSearched, setItemsSearched] = useState<string>("");
   const [orderValue, setOrderValue] = useState<string>("asc");
-  const [sortValue, setSortValue] = useState<string>("");
+  const [sortValue, setSortValue] = useState<string>("none"); 
+
   useEffect(() => {
-    if (sortValue === "title") {
-     items.sort((a: any, b: any) => {
-        if (orderValue === "asc") {
-          return a.title.localeCompare(b.title);
-        }
-        return b.title.localeCompare(a.title);
-      });
-    } else if (sortValue === "description") {
-      items.sort((a: any, b: any) => {
-        if (orderValue === "asc") {
-          return a.description.localeCompare(b.description);
-        }
-        return b.description.localeCompare(a.description);
-      });
-    } else if (sortValue === "price") {
-      items.sort((a: any, b: any) => {
-        if (orderValue === "asc") {
-          return a.price - b.price;
-        }
-        return b.price - a.price;
-      });
-    } else if (sortValue === "email") {
-      items.sort((a: any, b: any) => {
-        if (orderValue === "asc") {
-          return a.email.localeCompare(b.email);
-        }
-        return b.email.localeCompare(a.email);
+    const sortedItems = [...items];
+
+    if (sortValue !== "none") {
+      sortedItems.sort((a: any, b: any) => {
+        const compareResult =
+          sortValue === "title"
+            ? a.title.localeCompare(b.title)
+            : sortValue === "description"
+            ? a.description.localeCompare(b.description)
+            : sortValue === "price"
+            ? a.price - b.price
+            : sortValue === "email"
+            ? a.email.localeCompare(b.email)
+            : 0;
+
+        return orderValue === "asc" ? compareResult : -compareResult;
       });
     }
-  }, [sortValue, orderValue, items]);
 
-  const filteredItems = items.filter((data: any) =>
-    data.title.toLowerCase().includes(itemsSearched)
-  );
+    const filteredItems = sortedItems.filter((data: any) =>
+      data.title.toLowerCase().includes(itemsSearched.toLowerCase())
+    );
+
+    setFilteredItems(filteredItems);
+  }, [sortValue, orderValue, items, itemsSearched]);
+
+  const [filteredItems, setFilteredItems] = useState<any[]>([]);
 
   return {
     itemsSearched,

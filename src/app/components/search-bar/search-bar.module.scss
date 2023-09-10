@@ -1,11 +1,11 @@
-.Searchbox {
+.Searchbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 16px 15px;
   height: 14px;
   border-radius: 100px;
- 
+
   &__input {
     border: 1px solid grey;
     outline: none;
@@ -15,17 +15,16 @@
     border-radius: 100px;
     font-family: "Satoshi";
   }
-  
 }
 
-@media only screen and (max-width: 470px) {
-  .Searchbox {
+@media only screen and (max-width: 570px) {
+  .Searchbar {
     margin-top: 26px;
     height: 60px;
     padding-top: 0px;
     padding-bottom: 0px;
-    &__input{
-          width: 60vw;
+    &__input {
+      width: 65vw;
     }
   }
 }

@@ -3,7 +3,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
   font-family: "Satoshi";
   width: 100%;
   border-bottom: 1px solid rgb(198, 198, 198);
@@ -35,6 +34,7 @@
 }
 @media only screen and (max-width: 570px) {
   .Header {
+    justify-content: center;
     border-bottom: 0px;
     &__logo {
       display: none;
@@ -45,6 +45,7 @@
     &-button__text__image {
       height: 40px;
       width: 40px;
+      padding-left: 15px;
     }
   }
 }
