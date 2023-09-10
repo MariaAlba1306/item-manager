@@ -1,4 +1,3 @@
-import styles from "./search-bar.module.scss";
 
 import { ChangeEventHandler, FC } from "react";
 interface Props {

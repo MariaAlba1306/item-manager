@@ -9,10 +9,11 @@
   &__input {
     border: 1px solid grey;
     outline: none;
-    width: 300px;
+    width: 250px;
     padding: 10px;
     height: 15px;
     border-radius: 100px;
+    font-family: "Satoshi";
   }
   
 }
@@ -24,8 +25,7 @@
     padding-top: 0px;
     padding-bottom: 0px;
     &__input{
-          width: 70vw;
-          margin-top: 25px;
+          width: 60vw;
     }
   }
 }

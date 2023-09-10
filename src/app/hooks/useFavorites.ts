@@ -1,15 +1,27 @@
-import { useState, ChangeEvent } from "react";
+import { useState } from "react";
+import { Item } from "../api/api-service";
 
-function useFavoritesSearch(initialValue = "") {
-  const [favoritesSearched, setSearchFavorites] = useState(initialValue);
-  const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchFavorites(event.target.value.toLowerCase());
+export function useFavorites() {
+  const [favorites, setFavorites] = useState<Item[]>([]);
+
+  const updateFavorites = (itemInfo: Item) => {
+    if (isFav(itemInfo.title, favorites)) {
+      setFavorites(
+        favorites.filter((favorite) => favorite.title !== itemInfo.title)
+      );
+    } else {
+      setFavorites([...favorites, ...[itemInfo]]);
+    }
+  };
+
+  const isFav = (title: string, favorites: Item[]): boolean => {
+    const favIds = favorites.map((favorite) => favorite.title);
+    return favIds.includes(title);
   };
 
   return {
-    favoritesSearched,
-    handleSearchChange,
+    favorites,
+    updateFavorites,
+    isFav,
   };
 }
-
-export default useFavoritesSearch;

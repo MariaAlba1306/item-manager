@@ -3,11 +3,13 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  gap: 10px;
   font-family: "Satoshi";
+  width: 100%;
+  border-bottom: 1px solid rgb(198, 198, 198);
   &__logo {
-    width: 139px;
-    height: 51px;
+    width: 109px;
+    height: auto;
   }
 
   &-button {
@@ -15,15 +17,15 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      gap: 15px;
+      gap: 5px;
       text-decoration: none;
     }
     &__text {
       font-family: "Satoshi";
-      font-weight: 700;
-      font-size: 25px;
+      font-weight: 600;
+      font-size: 22px;
       line-height: 25px;
-      color: #de5f3f;
+      color: black;
       &__image {
         width: 30px;
         height: 30px;
@@ -31,12 +33,11 @@
     }
   }
 }
-@media only screen and (max-width: 470px) {
+@media only screen and (max-width: 570px) {
   .Header {
-    height: 26px;
+    border-bottom: 0px;
     &__logo {
-      width: 118px;
-      height: 46px;
+      display: none;
     }
     &-button__text {
       display: none;

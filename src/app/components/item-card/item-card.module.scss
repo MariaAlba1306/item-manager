@@ -76,3 +76,7 @@
   transition: box-shadow 0.5s;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.35);
 }
+.ItemCard__image__favorite.clicked {
+  transform: scale(1.5);
+  transition: transform 0.2s ease;
+}
