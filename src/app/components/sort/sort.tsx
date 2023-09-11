@@ -19,7 +19,6 @@ export default function SortBar({
   isIconVisible,
   isIconAscendant,
 }: Props) {
-  console.log(isIconAscendant);
   return (
     <div className={styles.Sort}>
       <form className={styles.Sort__form}>
@@ -40,7 +39,7 @@ export default function SortBar({
         <div className={styles.Sort__image}>
           <a onClick={onClick}>
             <Image
-              src={isIconAscendant === "asc" ? sortIconAsc : sortIconDesc}
+              src={isIconAscendant === "asc" ? sortIconDesc : sortIconAsc}
               alt="sort icon"
               className={styles.Sort__image__space}
             />

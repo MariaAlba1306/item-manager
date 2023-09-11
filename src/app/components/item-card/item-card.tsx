@@ -63,7 +63,6 @@ export function ItemCard({
           <a
             className={styles.ItemCard__info__email__text}
             href={`mailto:${email}`}
-            target="_blank"
           >
             {email}
           </a>

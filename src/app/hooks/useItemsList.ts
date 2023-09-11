@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { getItemsList } from "../api/api-service";
 
-export default function useItemsList() {
+const useItemsList = () => {
   const [itemList, setItemList] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState();
 
   useEffect(() => {
     getItemsList()
@@ -13,9 +13,10 @@ export default function useItemsList() {
         setLoading(false);
       })
       .catch((error) => {
-        setError(true);
+        setError(error);
       });
   }, []);
 
   return { itemList, setItemList, loading, error };
-}
+};
+export default useItemsList;

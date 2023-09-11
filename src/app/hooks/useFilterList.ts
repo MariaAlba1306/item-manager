@@ -1,11 +1,10 @@
-
 import { useState, useEffect } from "react";
 import { Item } from "../api/api-service";
 
-function useSortAndSearch(items: Item[]) {
+const useSortAndSearch = (items: Item[]) => {
   const [itemsSearched, setItemsSearched] = useState<string>("");
   const [orderValue, setOrderValue] = useState<string>("asc");
-  const [sortValue, setSortValue] = useState<string>("none"); 
+  const [sortValue, setSortValue] = useState<string>("none");
 
   useEffect(() => {
     const sortedItems = [...items];
@@ -45,6 +44,6 @@ function useSortAndSearch(items: Item[]) {
     setSortValue,
     filteredItems,
   };
-}
+};
 
 export default useSortAndSearch;

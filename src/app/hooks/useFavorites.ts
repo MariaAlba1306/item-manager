@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Item } from "../api/api-service";
 
-export function useFavorites() {
+const useFavorites = () => {
   const [favorites, setFavorites] = useState<Item[]>([]);
 
   const updateFavorites = (itemInfo: Item) => {
@@ -25,3 +25,4 @@ export function useFavorites() {
     isFav,
   };
 }
+export default useFavorites;

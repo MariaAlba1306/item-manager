@@ -1,0 +1,25 @@
+.Pagination{
+  display: flex;
+  align-items: center;
+  &__button {
+  font-family: "Satoshi";
+  border: none;
+  background-color: transparent;
+  padding: 5px 10px;
+  margin: 10px;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid grey;
+  border-radius: 30px;
+}
+.Pagination__button:disabled {
+  background-color: #ccc;
+  color: #666;
+  border: none;
+  opacity: 0.6;
+}
+
+}
+
+

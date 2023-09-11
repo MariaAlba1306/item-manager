@@ -7,7 +7,7 @@
   width: 100%;
   border-bottom: 1px solid rgb(198, 198, 198);
   &__logo {
-    width: 109px;
+    width: 80px;
     height: auto;
   }
 
@@ -22,7 +22,7 @@
     &__text {
       font-family: "Satoshi";
       font-weight: 600;
-      font-size: 22px;
+      font-size: 18px;
       line-height: 25px;
       color: black;
       &__image {
@@ -45,7 +45,7 @@
     &-button__text__image {
       height: 40px;
       width: 40px;
-      padding-left: 15px;
+      padding-left: 15;
     }
   }
 }
