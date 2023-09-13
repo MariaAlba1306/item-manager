@@ -25,6 +25,8 @@ export default function Home() {
   const { itemList, loading, error } = useItemsList();
   const { favorites, updateFavorites, isFav } = useFavorites();
   const { favoritesSearched, handleSearchChange } = useFavoritesSearch();
+  const { currentPage, nextPage, prevPage, getPageRange, setCurrentPage } = usePagination();
+
   const {
     itemsSearched,
     setItemsSearched,
@@ -33,9 +35,8 @@ export default function Home() {
     sortValue,
     setSortValue,
     filteredItems,
-  } = useSortAndSearch(itemList);
+  } = useSortAndSearch(itemList, setCurrentPage);
 
-  const { currentPage, nextPage, prevPage, getPageRange } = usePagination();
   const { startIndex, endIndex } = getPageRange(filteredItems.length);
 
   const [shouldShowModal, setShouldShowModal] = useState<boolean>(false);
@@ -45,6 +46,7 @@ export default function Home() {
     setOrderValue("asc");
   };
 
+  console.log(filteredItems);
   const toggleOrder = () => {
     setOrderValue(orderValue === "asc" ? "desc" : "asc");
   };
@@ -103,6 +105,7 @@ export default function Home() {
                 .slice(startIndex, endIndex)
                 .map((itemInfo: Item) => (
                   <ItemCard
+                    isModal={false}
                     key={keyCard++}
                     data={itemInfo}
                     onClickFavorite={() => updateFavorites(itemInfo)}
@@ -117,11 +120,13 @@ export default function Home() {
                 className={buttonStyles.Pagination__button}
                 onClick={prevPage}
                 disabled={currentPage === 1}
+                data-testid="pagination-prev"
               >
-                Previous Page
+                Prev Page
               </button>
               <div>{currentPage}</div>
               <button
+                data-testid="pagination-nex"
                 className={buttonStyles.Pagination__button}
                 onClick={nextPage}
                 disabled={currentPage * 5 >= filteredItems.length}

@@ -1,28 +1,24 @@
+import { FC, useState } from "react";
+import { Item } from "@/app/api/api-service";
 import styles from "./item-card.module.scss";
 import Image from "next/image";
 import favoriteIconUnmarked from "../../assets/icons/favorite-unmarked.svg";
 import favoriteIconMarked from "../../assets/icons/favorite-marked.svg";
-import { useState } from "react";
-
-type ItemCardProps = {
-  title: string;
-  price: string;
-  image: string;
-  email: string;
-  description: string;
-};
 
 interface CardElementProps {
   onClickFavorite: React.MouseEventHandler;
   isFavorite: boolean;
-  data: any;
+  data: Item;
+  isModal: boolean;
 }
-export function ItemCard({
+
+const ItemCard: FC<CardElementProps> = ({
   data,
   onClickFavorite,
   isFavorite,
-}: CardElementProps) {
-  const { title, price, image, email, description }: ItemCardProps = data;
+  isModal,
+}) => {
+  const { title, price, image, email, description }: Item = data;
   const [isClicked, setIsClicked] = useState(false);
   const handleFavoriteClick = () => {
     if (!isFavorite) {
@@ -33,8 +29,10 @@ export function ItemCard({
       }, 500);
     }
   };
+  const cardClass = isModal ? styles.ItemCard__small : styles.ItemCard;
+
   return (
-    <div className={styles.ItemCard} key="">
+    <div className={cardClass} key="" data-testid="item-element">
       <div className={styles.ItemCard__image}>
         <Image
           fill={true}
@@ -57,19 +55,25 @@ export function ItemCard({
         </div>
       </div>
       <div className={styles.ItemCard__info}>
-        <p className={styles.ItemCard__info__title}>{title}</p>
-        <p className={styles.ItemCard__info__price}>{price}€</p>
-        <p className={styles.ItemCard__info__email}>
-          <a
-            className={styles.ItemCard__info__email__text}
-            href={`mailto:${email}`}
-          >
-            {email}
-          </a>
-        </p>
-        <p className={styles.ItemCard__info__description}>{description}</p>
+        <h1 data-testid="card-title" className={styles.ItemCard__info__title}>
+          {title}
+        </h1>
+        {!isModal ? (
+          <>
+            <p className={styles.ItemCard__info__price}>{price}€</p>
+            <p className={styles.ItemCard__info__email}>
+              <a
+                className={styles.ItemCard__info__email__text}
+                href={`mailto:${email}`}
+              >
+                {email}
+              </a>
+            </p>
+            <p className={styles.ItemCard__info__description}>{description}</p>
+          </>
+        ) : null}
       </div>
     </div>
   );
-}
+};
 export default ItemCard;

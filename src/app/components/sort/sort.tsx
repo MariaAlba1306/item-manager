@@ -4,7 +4,7 @@ import styles from "./sort.module.scss";
 import sortIconDesc from "./../../assets/icons/sorting-desc.svg";
 import sortIconAsc from "./../../assets/icons/sorting-asc.svg";
 
-interface Props {
+interface SortProps {
   onChange: ChangeEventHandler;
   onClick: React.MouseEventHandler;
   value: string;
@@ -18,7 +18,7 @@ export default function SortBar({
   value,
   isIconVisible,
   isIconAscendant,
-}: Props) {
+}: SortProps) {
   return (
     <div className={styles.Sort}>
       <form className={styles.Sort__form}>
@@ -27,6 +27,7 @@ export default function SortBar({
           className={styles.Sort__form__select}
           value={value}
           onChange={onChange}
+          data-testid="select"
         >
           <option value="none">None</option>
           <option value="title">Title</option>
@@ -36,7 +37,7 @@ export default function SortBar({
         </select>
       </form>
       {isIconVisible != "none" ? (
-        <div className={styles.Sort__image}>
+        <div className={styles.Sort__image} data-testid="icon-sort">
           <a onClick={onClick}>
             <Image
               src={isIconAscendant === "asc" ? sortIconDesc : sortIconAsc}

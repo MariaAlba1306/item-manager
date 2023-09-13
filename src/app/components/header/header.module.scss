@@ -1,4 +1,6 @@
 .Header {
+  position: fixed;
+  top: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -6,12 +8,18 @@
   font-family: "Satoshi";
   width: 100%;
   border-bottom: 1px solid rgb(198, 198, 198);
+  z-index: 1000;
+  background-color: white;
+  height: 70px;
   &__logo {
     width: 80px;
     height: auto;
+    padding-left: 5vh;
   }
 
   &-button {
+    padding-right: 5vh;
+
     &__link {
       display: flex;
       flex-direction: row;
@@ -38,6 +46,9 @@
     border-bottom: 0px;
     &__logo {
       display: none;
+    }
+    &-button {
+      padding: 0px 0px 0px 5px;
     }
     &-button__text {
       display: none;

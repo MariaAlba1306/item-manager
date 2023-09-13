@@ -1,14 +1,16 @@
 
 import { ChangeEventHandler, FC } from "react";
-interface Props {
+
+interface SearchBarProps {
   placeholder: string;
   onChange: ChangeEventHandler;
   className: string;
-  value: any;
+  value: string;
 }
-const SearchBar: FC<Props> = ({ placeholder, onChange, className, value }) => {
+
+const SearchBar: FC<SearchBarProps> = ({ placeholder, onChange, className, value }) => {
   return (
-    <input
+    <input data-testid="search-home"
       placeholder={placeholder}
       inputMode="search"
       onChange={onChange}

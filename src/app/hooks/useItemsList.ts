@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { getItemsList } from "../api/api-service";
+import { Item, getItemsList } from "../api/api-service";
 
 const useItemsList = () => {
-  const [itemList, setItemList] = useState<any[]>([]);
+  const [itemList, setItemList] = useState<Item[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
 

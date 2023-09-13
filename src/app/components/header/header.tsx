@@ -1,14 +1,15 @@
+import { FC, ReactNode } from "react";
 import Image from "next/image";
 import styles from "./header.module.scss";
 import logo from "../../assets/images/logo.png";
 import favoriteIcon from "../../assets/icons/favorite-unmarked.svg";
-import SearchBar from "../search-bar/search-bar";
-import { ChangeEvent } from "react";
-interface Props {
+
+interface HeaderProps {
   toggleModal: () => void;
-  children: any;
+  children: ReactNode;
 }
-export default function Header({ toggleModal, children }: Props) {
+
+const Header: FC<HeaderProps> = ({ toggleModal, children }) => {
   return (
     <div className={styles.Header}>
       <a href="#default">
@@ -16,7 +17,11 @@ export default function Header({ toggleModal, children }: Props) {
       </a>
       <div>{children}</div>
       <div className={`${styles["Header-button"]}`}>
-        <a className={`${styles["Header-button__link"]}`} onClick={toggleModal}>
+        <a
+          className={`${styles["Header-button__link"]}`}
+          onClick={toggleModal}
+          data-testid="favorites-button-modal"
+        >
           <div className={`${styles["Header-button__text"]}`}>
             <p>Favorites</p>
           </div>
@@ -31,4 +36,5 @@ export default function Header({ toggleModal, children }: Props) {
       </div>
     </div>
   );
-}
+};
+export default Header;

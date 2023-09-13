@@ -13,7 +13,7 @@ const usePagination = (itemsPerPage = 5) => {
     }
   };
 
-  const getPageRange = (totalItems: any) => {
+  const getPageRange = (totalItems: number) => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     return { startIndex, endIndex };
@@ -21,6 +21,7 @@ const usePagination = (itemsPerPage = 5) => {
 
   return {
     currentPage,
+    setCurrentPage,
     nextPage,
     prevPage,
     getPageRange,

@@ -1,9 +1,14 @@
+import { FC } from "react";
+import styles from "./no-results.module.scss";
 
-import styles from "./no-results.module.scss"
 interface NoResultsProps {
   message: string;
-};
+}
 
-const NoResults = ({ message }: NoResultsProps) => <p className={styles.NoResults}>{message}</p>;
+const NoResults: FC<NoResultsProps> = ({ message }) => (
+  <p className={styles.NoResults} data-testid="no-results">
+    {message}
+  </p>
+);
 
 export default NoResults;
