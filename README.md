@@ -1,34 +1,66 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+
+
+## Item manager
+This project consists about creating an small "Wallapop" that receives info from an API
+
+## What will you find?
+
+- Home with a listing of all items extracted from the API
+- Max of 5 products per page 
+- Pagination that offers you the possibility to go to next products
+- Searchbar to filter among all the items based on title, price, email and description
+- Sort where you can select the type of sorting that you want to do, based on title, price, email and description.
+- "Easy ordering", it appears only when you decide to filter, and automatically put it in ascending. It also changes the color when you click on it.
+- You can save your favorite items by clicking the heart.
+- You also have a modal where you can see them and filter them by title.
+- Responsive web
+
+
+
 ## Getting Started
 
-First, run the development server:
+###  Node- & NPM-Versions
+
+This app uses Node version 16.16.0 and npm version 9.8.1.
+
+You need to install them to run the project using: 
+
+```bash
+npm install
+```
+
+Then run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Tests
+ 
+To run the tests, use:
 
-## Learn More
+```bash
+npm run test
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Considerations
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- I've decided to use Next.js because it simplifies performance optimization and SEO for my web applications. It also enables the creation of dynamic routes and provides flexibility to generate static pages or load dynamic data on the client, which is essential for projects with frequently updated content.
+- I've used typescript because it encourages the use of strong typing and interfaces, leading to better code quality.
+- I've decided to do integration tests because they can validate the entire user flow through my application. I used Jest with React Testing Library.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+Hope you enjoy it as much as I did ! <3
+
+
+
+
+
